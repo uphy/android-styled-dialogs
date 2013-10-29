@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>eu.inmite.android.lib</groupId>
-		<artifactId>android-styled-dialogs-parent</artifactId>
-		<relativePath>../pom.xml</relativePath>
-		<version>1.0.2-SNAPSHOT</version>
-	</parent>
-
+	<groupId>eu.inmite.android.lib</groupId>
 	<artifactId>android-styled-dialogs</artifactId>
+	<version>1.0.2</version>
 	<packaging>apklib</packaging>
 
 	<name>Android StyledDialogs library</name>
@@ -51,12 +47,14 @@
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
+			<version>4.1.1.4</version>
 			<scope>provided</scope>
 		</dependency>
 
-        <dependency>
+		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>support-v4</artifactId>
+			<version>r7</version>
 		</dependency>
 
 	</dependencies>
@@ -69,6 +67,18 @@
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
 				<extensions>true</extensions>
+				<configuration>
+					<sdk>
+						<platform>17</platform>
+					</sdk>
+					<proguard>
+						<skip>true</skip>
+					</proguard>
+					<sign>
+						<debug>false</debug>
+					</sign>
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -87,4 +97,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>uphyjp-thirdparty</id>
+			<name>uphy.jp - SNAPSHOT</name>
+			<url>http://uphy.jp/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
